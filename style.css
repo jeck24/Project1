@@ -1,0 +1,40 @@
+.jumbotron {
+    text-align: center;
+    border-radius: 0;
+    border: solid black 10px;
+    padding: 5%;
+    background-color: rebeccapurple;
+    color: whitesmoke;
+  }
+
+  .asideContent{
+      display: flex;
+      
+      
+  }
+  
+  .moveSide1{
+      padding-left: 5%;
+
+  }
+
+  .moveSide2{
+    margin-left: -45%;
+    
+  }
+  .movebottom{
+    display: flex;
+    
+  }
+  
+  footer{
+    text-align: center;
+    color: whitesmoke;
+}
+ footer p {
+     background-color: rgb(78, 76, 76);
+     padding: 2%;
+    
+     margin-top: 10%;
+     border-top: solid teal 1rem;
+}
