@@ -1,7 +1,7 @@
 
 $.ajax({
     headers: { 'X-Auth-Token': '9bcb297f76e444a6926ba9eae377962b' },
-    url: "https://api.football-data.org/v2/players/44/matches",
+    url: "https://api.football-data.org/v2/competitions/PL/matches?matchday=11",
     dataType: 'json',
     type: 'GET',
 }).done(function(response) {
