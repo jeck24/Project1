@@ -23,6 +23,7 @@ function renderLastBrowsed() {
     }
     console.log(city);
   }
+
 function searchSoccerTeam(usersInput) {
    const settings = {
        "async": true,
@@ -36,50 +37,42 @@ function searchSoccerTeam(usersInput) {
    };
    $.ajax(settings).done(function (response) {
     console.log(response);
+
        let iconLinkOne = response.api.teams[0].logo;
        let imgTagOne = $("<img>")
        imgTagOne.attr("src", iconLinkOne);
        $(".iconOne").html(imgTagOne);
+       $(".taemNameOne").text(response.api.teams[0].name);
+       $("#stadiumOne").text("Stadium: "+response.api.teams[0].venue_name);
+       $("#stadiumOne").text("Stadium: "+response.api.teams[0].venue_name);
+
        let iconLinkTwo = response.api.teams[1].logo;
        let imgTagTwo = $("<img>")
        imgTagTwo.attr("src", iconLinkTwo);
        $(".iconTwo").html(imgTagTwo);
+       $(".taemNameTwo").text(response.api.teams[1].name);
+
        let iconLinkThree = response.api.teams[3].logo;
        let imgTagThree = $("<img>")
        imgTagThree.attr("src", iconLinkThree);
        $(".iconThree").html(imgTagThree);
-       let iconLinkFour = response.api.teams[6].logo;
-       let imgTagFour = $("<img>")
-       imgTagFour.attr("src", iconLinkFour);
-       $(".iconFour").html(imgTagFour);
-       let iconLinkFive = response.api.teams[9].logo;
-       let imgTagFive = $("<img>")
-       imgTagFive.attr("src", iconLinkFive);
-       $(".iconFive").html(imgTagFive);
-       $(".taemNameOne").text(response.api.teams[0].name);
-       $(".taemNameTwo").text(response.api.teams[1].name);
-       $(".taemNameThree").text(response.api.teams[3].name);
-       $(".taemNameFour").text(response.api.teams[6].name);
-       $(".taemNameFive").text(response.api.teams[9].name);
-       $(".teamIDOne").text(response.api.teams[0].team_id);
-       $(".teamIDTwo").text(response.api.teams[1].team_id);
-       $(".teamIDThree").text(response.api.teams[3].team_id);
-       $(".teamIDFour").text(response.api.teams[6].team_id);
-       $(".teamIDFive").text(response.api.teams[9].team_id);
+       $(".taemNameThree").text(response.api.teams[2].name);
+      
+    //    Access data for the latest 10 fixtures
 
-       var teamID1 = response.api.teams[0].team_id;
-       console.log(teamID1);
+       var teamID1 = response.api.teams[1].team_id;
        const settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/"+teamID1+"/last/10?timezone=Europe%2FLondon",
+        "url": "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/"+teamID1+"/last/10?timezone=Europe%2FLondon",
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
             "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
         }
         };
-        $.ajax(settings).done(function (response) {
+    
+         $.ajax(settings).done(function (response) {
         console.log(response);
         });
 
