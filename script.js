@@ -22,6 +22,7 @@ function renderLastBrowsed() {
       return;
     }
     console.log(city);
+    $('.actualPreviousCityText').text("Previous city: "+ city);
   }
 
 function searchSoccerTeam(usersInput) {
