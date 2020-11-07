@@ -1,10 +1,14 @@
 let APIKey = "298ac576969a1ac55b166266aed2262a";
 let usersInput ;
 let weatherInput ;
+
+
 renderLastBrowsed();
+
 $("button").on("click", (event) => {
     event.preventDefault();
        console.log("click")
+
        usersTeamInputSearch = $(".searchBar").val().trim();
        weatherInput = $(".searchBar").val().trim();
         console.log(usersTeamInputSearch);
