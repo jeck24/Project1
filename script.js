@@ -18,14 +18,30 @@ function searchSoccerTeam(usersInput) {
    	console.log(response);
    
 
-       $("#firstCardHolderImg").append("<img>" + response.api.teams[0].logo + "</img>");
+       let iconLinkOne = response.api.teams[0].logo;
+       let imgTagOne = $("<img>")
+       imgTagOne.attr("src", iconLinkOne);
+       $(".iconOne").html(imgTagOne);
 
+       let iconLinkTwo = response.api.teams[0].logo;
+       let imgTagTwo = $("<img>")
+       imgTagTwo.attr("src", iconLinkTwo);
+       $(".iconTwo").html(imgTagTwo);
 
+       let iconLinkThree = response.api.teams[0].logo;
+       let imgTagThree = $("<img>")
+       imgTagThree.attr("src", iconLinkThree);
+       $(".iconThree").html(imgTagThree);
 
+       let iconLinkFour = response.api.teams[0].logo;
+       let imgTagFour = $("<img>")
+       imgTagFour.attr("src", iconLinkFour);
+       $(".iconFour").html(imgTagFour);
 
-
-
-
+       let iconLinkFive = response.api.teams[0].logo;
+       let imgTagFive = $("<img>")
+       imgTagFive.attr("src", iconLinkFive);
+       $(".iconFive").html(imgTagFive);
 
 
 
