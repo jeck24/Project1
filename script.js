@@ -3,22 +3,32 @@ let usersInput ;
 let weatherInput ;
 
 
+renderLastBrowsed();
 
 $("button").on("click", (event) => {
     event.preventDefault();
        console.log("click")
-       console.log(usersInput)
 
        usersTeamInputSearch = $(".searchBar").val().trim();
        weatherInput = $(".searchBar").val().trim();
-
+        console.log(usersTeamInputSearch);
        searchSoccerTeam(usersTeamInputSearch);
        searchWeather(weatherInput);
-      console.log(api.teams[0].team_id)
+
+      localStorage.setItem("city",usersTeamInputSearch);
 
 });
 
+function renderLastBrowsed() {
+    var city = localStorage.getItem("city");
+  
+    if (!city) {
+      return;
+    }
+    
+    console.log(city);
 
+  }
 
 
 function searchSoccerTeam(usersInput) {
