@@ -13,6 +13,10 @@
     display: flex;
   }
 
+  .city{
+    margin-left: 5%;
+  }
+
 
   footer p {
     background-color: rgb(78, 76, 76);
