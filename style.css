@@ -17,6 +17,12 @@
     margin-left: 5%;
   }
 
+  .card{
+    height: 300%;
+  }
+  table{
+    margin-top: 20%;
+  }
 
   footer p {
     background-color: rgb(78, 76, 76);

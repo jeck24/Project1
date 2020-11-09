@@ -2,7 +2,6 @@ let APIKey = "298ac576969a1ac55b166266aed2262a";
 let usersInput ;
 let weatherInput ;
 
-
 renderLastBrowsed();
 
 $("button").on("click", (event) => {
@@ -45,28 +44,28 @@ function searchSoccerTeam(usersInput) {
        let imgTagTwo = $("<img>")
        imgTagTwo.attr("src", iconLinkTwo);
        $(".iconTwo").html(imgTagTwo);
-       let iconLinkThree = response.api.teams[3].logo;
+       let iconLinkThree = response.api.teams[2].logo;
        let imgTagThree = $("<img>")
        imgTagThree.attr("src", iconLinkThree);
        $(".iconThree").html(imgTagThree);
-       let iconLinkFour = response.api.teams[6].logo;
-       let imgTagFour = $("<img>")
-       imgTagFour.attr("src", iconLinkFour);
-       $(".iconFour").html(imgTagFour);
-       let iconLinkFive = response.api.teams[9].logo;
-       let imgTagFive = $("<img>")
-       imgTagFive.attr("src", iconLinkFive);
-       $(".iconFive").html(imgTagFive);
        $(".taemNameOne").text(response.api.teams[0].name);
        $(".taemNameTwo").text(response.api.teams[1].name);
-       $(".taemNameThree").text(response.api.teams[3].name);
-       $(".taemNameFour").text(response.api.teams[6].name);
-       $(".taemNameFive").text(response.api.teams[9].name);
+       $(".taemNameThree").text(response.api.teams[2].name);
        $(".teamIDOne").text(response.api.teams[0].team_id);
        $(".teamIDTwo").text(response.api.teams[1].team_id);
-       $(".teamIDThree").text(response.api.teams[3].team_id);
-       $(".teamIDFour").text(response.api.teams[6].team_id);
-       $(".teamIDFive").text(response.api.teams[9].team_id);
+       $(".teamIDThree").text(response.api.teams[2].team_id);
+       $(".teamCountryOne").text(response.api.teams[0].country);
+       $(".teamCountryTwo").text(response.api.teams[1].country);
+       $(".teamCountryThree").text(response.api.teams[2].country);
+       $(".venueCityTeamNameOne").text(response.api.teams[0].venue_city);
+       $(".venueCityTeamNameTwo").text(response.api.teams[1].venue_city);
+       $(".venueCityTeamNameThree").text(response.api.teams[2].venue_city);
+       $(".venueNameTeamOne").text(response.api.teams[0].venue_name);
+       $(".venueNameTeamTwo").text(response.api.teams[1].venue_name);
+       $(".venueNameTeamThree").text(response.api.teams[2].venue_name);
+       $(".foundedTeamOne").text(response.api.teams[0].founded);
+       $(".foundedTeamTwo").text(response.api.teams[1].founded);
+       $(".foundedTeamThree").text(response.api.teams[2].founded);
 
        var teamID1 = response.api.teams[0].team_id;
        console.log(teamID1);
@@ -83,7 +82,6 @@ function searchSoccerTeam(usersInput) {
         $.ajax(settings).done(function (response) {
         console.log(response);
         });
-
 
 });
 }
