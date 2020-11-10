@@ -24,6 +24,7 @@ function renderLastBrowsed() {
     console.log(city);
     $('.actualPreviousCityText').text("Previous city: "+ city);
   }
+
 function searchSoccerTeam(usersInput) {
    const settings = {
        "async": true,
@@ -37,10 +38,15 @@ function searchSoccerTeam(usersInput) {
    };
    $.ajax(settings).done(function (response) {
     console.log(response);
+
        let iconLinkOne = response.api.teams[0].logo;
        let imgTagOne = $("<img>")
        imgTagOne.attr("src", iconLinkOne);
        $(".iconOne").html(imgTagOne);
+       $(".taemNameOne").text(response.api.teams[0].name);
+       $("#stadiumOne").text("Stadium: "+response.api.teams[0].venue_name);
+       $("#stadiumOne").text("Stadium: "+response.api.teams[0].venue_name);
+
        let iconLinkTwo = response.api.teams[1].logo;
        let imgTagTwo = $("<img>")
        imgTagTwo.attr("src", iconLinkTwo);
@@ -68,19 +74,19 @@ function searchSoccerTeam(usersInput) {
        $(".foundedTeamTwo").text(response.api.teams[1].founded);
        $(".foundedTeamThree").text(response.api.teams[2].founded);
 
-       var teamID1 = response.api.teams[0].team_id;
-       console.log(teamID1);
+       var teamID1 = response.api.teams[1].team_id;
        const settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/"+teamID1+"/last/10?timezone=Europe%2FLondon",
+        "url": "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/"+teamID1+"/last/10?timezone=Europe%2FLondon",
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
             "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
         }
         };
-        $.ajax(settings).done(function (response) {
+    
+         $.ajax(settings).done(function (response) {
         console.log(response);
         });
 
