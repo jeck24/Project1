@@ -14,7 +14,7 @@ $("button").on("click", (event) => {
        searchSoccerTeam(usersTeamInputSearch);
        searchWeather(weatherInput);
       localStorage.setItem("city",usersTeamInputSearch);
-      function hideImg()
+      hideImg()
 });
 function renderLastBrowsed() {
     var city = localStorage.getItem("city");
@@ -123,10 +123,9 @@ function searchWeather(usersInput) {
 
 
 function hideImg() {
-    var hidesoccerImage = $("image");
-    if (hidesoccerImage.style.display === "none") {
-        hidesoccerImage.style.display = "block";
-    } else {
-        hidesoccerImage.style.display = "none";
-    }
+    $("img").hide();
+    $("img").hide();
+    $("img").hide();
+
+   
   }
