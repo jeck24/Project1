@@ -2,6 +2,11 @@ let APIKey = "298ac576969a1ac55b166266aed2262a";
 let usersInput ;
 let weatherInput ;
 
+
+if (condition) {
+    
+}
+
 renderLastBrowsed();
 
 $("button").on("click", (event) => {
