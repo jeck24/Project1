@@ -45,7 +45,7 @@ function searchSoccerTeam(usersInput) {
        $(".iconOne").html(imgTagOne);
        $(".taemNameOne").text(response.api.teams[0].name);
        $("#stadiumOne").text("Stadium: "+response.api.teams[0].venue_name);
-       $("#stadiumOne").text("Stadium: "+response.api.teams[0].venue_name);
+       $("#stadiumOne").text("Adress: "+response.api.teams[0].venue);
 
        let iconLinkTwo = response.api.teams[1].logo;
        let imgTagTwo = $("<img>")
@@ -54,7 +54,7 @@ function searchSoccerTeam(usersInput) {
        $(".taemNameTwo").text(response.api.teams[1].name);
 
        let iconLinkThree = response.api.teams[3].logo;
-       let imgTagThree = $("<img>")
+       let imgTagThree = $("<img>")+
        imgTagThree.attr("src", iconLinkThree);
        $(".iconThree").html(imgTagThree);
        $(".taemNameThree").text(response.api.teams[2].name);
