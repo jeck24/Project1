@@ -16,6 +16,19 @@ $("button").on("click", (event) => {
       localStorage.setItem("city",usersTeamInputSearch);
       hideImg()
 });
+
+$(".iconOne").on("click", function(){
+    console.log("click");
+});
+
+$(".iconTwo").on("click", function(){
+    console.log("click");
+});
+
+$(".iconThree").on("click", function(){
+    console.log("click");
+});
+
 function renderLastBrowsed() {
     var city = localStorage.getItem("city");
     if (!city) {
