@@ -8,16 +8,16 @@
   .middleSection{
     margin-left: 7%;
   }
-
   .bottomSection{
     display: flex;
   }
-
   .city{
     margin-left: 5%;
   }
 
-
+  table{
+    margin-top: 5%;
+  }
   footer p {
     background-color: rgb(78, 76, 76);
     padding: 2%;
