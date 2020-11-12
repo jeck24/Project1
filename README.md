@@ -1,5 +1,7 @@
 # Project 1
 
+![image](https://user-images.githubusercontent.com/67298961/98879793-f36baf80-244b-11eb-989a-4cf21ea990ae.png)
+
 ## Application Requirements
 
 Your project should fulfill the following requirements:
