@@ -16,17 +16,6 @@ $("button").on("click", (event) => {
   hideImg();
 });
 
-$(".iconOne").on("click", function () {
-  console.log("click");
-});
-
-$(".iconTwo").on("click", function () {
-  console.log("click");
-});
-
-$(".iconThree").on("click", function () {
-  console.log("click");
-});
 
 function renderLastBrowsed() {
   var city = localStorage.getItem("city");
@@ -48,175 +37,263 @@ function searchSoccerTeam(usersInput) {
       "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
     },
   };
+
   $.ajax(settings).done(function (response) {
     console.log(response);
 
-    let iconLinkOne = response.api.teams[0].logo;
-    let imgTagOne = $("<img>");
-    imgTagOne.attr("src", iconLinkOne);
-    $(".iconOne").html(imgTagOne);
-    $(".taemNameOne").text(response.api.teams[0].name);
-    $("#stadiumOne").text("Stadium: " + response.api.teams[0].venue_name);
-    $("#stadiumOne").text("Stadium: " + response.api.teams[0].venue_name);
+       let iconLinkOne = response.api.teams[0].logo;
+       let imgTagOne = $("<img>")
+       imgTagOne.attr("src", iconLinkOne);
+       $(".iconOne").html(imgTagOne);
+       $(".taemNameOne").text(response.api.teams[0].name);
+       $("#stadiumOne").text("Stadium: "+response.api.teams[0].venue_name);
+       $("#stadiumOne").text("Stadium: "+response.api.teams[0].venue_name);
 
-    let iconLinkTwo = response.api.teams[1].logo;
-    let imgTagTwo = $("<img>");
-    imgTagTwo.attr("src", iconLinkTwo);
-    $(".iconTwo").html(imgTagTwo);
-    let iconLinkThree = response.api.teams[2].logo;
-    let imgTagThree = $("<img>");
-    imgTagThree.attr("src", iconLinkThree);
-    $(".iconThree").html(imgTagThree);
-    $(".taemNameOne").text(response.api.teams[0].name);
-    $(".taemNameTwo").text(response.api.teams[1].name);
-    $(".taemNameThree").text(response.api.teams[2].name);
-    $(".teamIDOne").text(response.api.teams[0].team_id);
-    $(".teamIDTwo").text(response.api.teams[1].team_id);
-    $(".teamIDThree").text(response.api.teams[2].team_id);
-    $(".teamCountryOne").text(response.api.teams[0].country);
-    $(".teamCountryTwo").text(response.api.teams[1].country);
-    $(".teamCountryThree").text(response.api.teams[2].country);
-    $(".venueCityTeamNameOne").text(response.api.teams[0].venue_city);
-    $(".venueCityTeamNameTwo").text(response.api.teams[1].venue_city);
-    $(".venueCityTeamNameThree").text(response.api.teams[2].venue_city);
-    $(".venueNameTeamOne").text(response.api.teams[0].venue_name);
-    $(".venueNameTeamTwo").text(response.api.teams[1].venue_name);
-    $(".venueNameTeamThree").text(response.api.teams[2].venue_name);
-    $(".foundedTeamOne").text(response.api.teams[0].founded);
-    $(".foundedTeamTwo").text(response.api.teams[1].founded);
-    $(".foundedTeamThree").text(response.api.teams[2].founded);
+       let iconLinkTwo = response.api.teams[1].logo;
+       let imgTagTwo = $("<img>")
+       imgTagTwo.attr("src", iconLinkTwo);
+       $(".iconTwo").html(imgTagTwo);
+       let iconLinkThree = response.api.teams[2].logo;
+       let imgTagThree = $("<img>")
+       imgTagThree.attr("src", iconLinkThree);
+       $(".iconThree").html(imgTagThree);
+       $(".taemNameOne").text(response.api.teams[0].name);
+       $(".taemNameTwo").text(response.api.teams[1].name);
+       $(".taemNameThree").text(response.api.teams[2].name);
+       $(".teamIDOne").text(response.api.teams[0].team_id);
+       $(".teamIDTwo").text(response.api.teams[1].team_id);
+       $(".teamIDThree").text(response.api.teams[2].team_id);
+       $(".teamCountryOne").text(response.api.teams[0].country);
+       $(".teamCountryTwo").text(response.api.teams[1].country);
+       $(".teamCountryThree").text(response.api.teams[2].country);
+       $(".venueCityTeamNameOne").text(response.api.teams[0].venue_city);
+       $(".venueCityTeamNameTwo").text(response.api.teams[1].venue_city);
+       $(".venueCityTeamNameThree").text(response.api.teams[2].venue_city);
+       $(".venueNameTeamOne").text(response.api.teams[0].venue_name);
+       $(".venueNameTeamTwo").text(response.api.teams[1].venue_name);
+       $(".venueNameTeamThree").text(response.api.teams[2].venue_name);
+       $(".foundedTeamOne").text(response.api.teams[0].founded);
+       $(".foundedTeamTwo").text(response.api.teams[1].founded);
+       $(".foundedTeamThree").text(response.api.teams[2].founded);
 
-    var teamID1 = response.api.teams[1].team_id;
-    const settings = {
-      async: true,
-      crossDomain: true,
-      url:
-        "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/" +
-        teamID1 +
-        "/last/10?timezone=Europe%2FLondon",
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
-        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-      },
-    };
 
-    var teamID1 = response.api.teams[1].team_id;
+    $(".iconOne").on("click", function(){
+        console.log("click");
+        var teamID = response.api.teams[0].team_id;
+        getTeamData(teamID);
+    });
+    
+    $(".iconTwo").on("click", function(){
+        console.log("click");
+        var teamID = response.api.teams[1].team_id;
+        getTeamData(teamID);
+    });
+    
+    $(".iconThree").on("click", function(){
+        console.log("click");
+        var teamID = response.api.teams[2].team_id;
+        getTeamData(teamID);
+    });
 
-    // Next 10 fixtures
+       function getTeamData(team) {
+      
+        // Next fixture
 
-    const settings2 = {
-      async: true,
-      crossDomain: true,
-      url:
-        "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/" +
-        teamID1 +
-        "/next/1?timezone=Europe%2FLondon",
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
-        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-      },
-    };
-
-    $.ajax(settings2).done(function (response) {
-      console.log(response);
-
-      // Fixture data will be manipulated here
-
-      var leagueID1 = response.api.fixtures[0].league_id;
-      console.log(response.api.fixtures[0].league_id);
-
-      // Coach for the Squad
-
-      const settings4 = {
-        async: true,
-        crossDomain: true,
-        url:
-          "https://api-football-v1.p.rapidapi.com/v2/coachs/team/" +
-          teamID1 +
-          "",
-        method: "GET",
-        headers: {
-          "x-rapidapi-key":
-            "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
-          "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-        },
-      };
-
-      $.ajax(settings4).done(function (response) {
-        console.log(response);
-
-        //Coach data will be manipulated here
-
-        // Player from a Squad
-
-        const settings3 = {
-          async: true,
-          crossDomain: true,
-          url:
-            "https://api-football-v1.p.rapidapi.com/v2/players/squad/" +
-            teamID1 +
-            "/2020-2021",
-          method: "GET",
-          headers: {
-            "x-rapidapi-key":
-              "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
-            "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-          },
+        const settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/"+team+"/next/10?timezone=Europe%2FLondon",
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
+                "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+            }
         };
-        $.ajax(settings3).done(function (response) {
-          console.log(response);
+        
+        $.ajax(settings).done(function (response) {
+        //Next fixture data is here
+        console.log(response);
+   
+        var index = 0;
+        while (response.api.fixtures[index].homeTeam.team_id!=team) {
+            index++;
+        }
+        console.log(response.api.fixtures[index]);
 
-          // Squad data will be manipulated here
+        var completeGameDate = response.api.fixtures[index].event_date
+        var gameDate = response.api.fixtures[index].event_date.substr(0,10);
 
-          //Standig for the ligue
+        if (response.api.fixtures[index].status === "Time to be defined") {
+            var gameTime = "To be defined"
+        }
+        else {
+            var gameTime =  completeGameDate.substr(completeGameDate.length - 14).substr(0,5);
+        
+        }
 
-          const settings = {
-            async: true,
-            crossDomain: true,
-            url:
-              "https://api-football-v1.p.rapidapi.com/v2/leagueTable/" +
-              leagueID1 +
-              "",
-            method: "GET",
-            headers: {
-              "x-rapidapi-key":
-                "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
-              "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-            },
-          };
+        var awayTeam = response.api.fixtures[index].awayTeam.team_name;
+        var awayLogo = response.api.fixtures[index].awayTeam.logo;
+        var homeTeam = response.api.fixtures[index].homeTeam.team_name;
+        var homeLogo = response.api.fixtures[index].homeTeam.logo;
+        var gameDate = response.api.fixtures[index].event_date.substr(0,10);
 
-          $.ajax(settings).done(function (response) {
-            console.log(response);
+        console.log(gameDate);
+        console.log(gameTime);    
+        console.log(awayTeam);
+        console.log(awayLogo);
+        console.log(homeTeam);
+        console.log(homeLogo);
+        //Next fixture data is here
 
-            // Standing data will be manipulated here
+         var leagueID = response.api.fixtures[0].league_id; //grabbing league ID from here as it comes from the fixture
+         console.log(response.api.fixtures[0].league_id); //grabbing league ID from here as it comes from the fixture
 
-            //TopScorers information
+             // Coach for the Squad
 
             const settings = {
-              async: true,
-              crossDomain: true,
-              url:
-                "https://api-football-v1.p.rapidapi.com/v2/topscorers/" +
-                leagueID1 +
-                "",
-              method: "GET",
-              headers: {
-                "x-rapidapi-key":
-                  "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
-                "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-              },
+            "async": true,
+            "crossDomain": true,
+            "url": "https://api-football-v1.p.rapidapi.com/v2/coachs/team/"+team+"",
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
+                "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+            }
             };
+        
+             $.ajax(settings).done(function (response) {
+            //Coach data is here
+            console.log(response);
 
-            $.ajax(settings).done(function (response) {
-              console.log(response);
+            var coachName = response.api.coachs[0].name;
+            console.log(coachName);
+            //Coach data is here
+
+
+                 // Player from a Squad
+                 const settings = {
+                 "async": true,
+                 "crossDomain": true,
+                 "url": "https://api-football-v1.p.rapidapi.com/v2/players/squad/"+team+"/2020-2021",
+                 "method": "GET",
+                 "headers": {
+                 "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
+                 "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+                 }
+                 };
+                 $.ajax(settings).done(function (response) {
+
+                 // players arrays for each position are here   
+                 console.log(response);
+
+                 var goalkeepers = [];
+                 var defenders = [];
+                 var midfielders = [];
+                 var attackers = [];
+
+                 for (let i = 0; i < response.api.players.length; i++) {
+
+                    if (response.api.players[i].position === "Goalkeeper") {
+                        goalkeepers.push(response.api.players[i].player_name);
+                    }
+                    else if (response.api.players[i].position === "Attacker") {
+                        attackers.push(response.api.players[i].player_name);
+                    }
+                    else if (response.api.players[i].position === "Defender") {
+                        defenders.push(response.api.players[i].player_name);
+                    }
+                    else if (response.api.players[i].position === "Midfielder") {
+                        midfielders.push(response.api.players[i].player_name);
+                    }
+                 }
+                 console.log(goalkeepers);
+                 console.log(defenders);
+                 console.log(midfielders);
+                 console.log(attackers);
+                 // players arrays for each position are here
+
+                    //Standings for the ligue
+
+                    const settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://api-football-v1.p.rapidapi.com/v2/leagueTable/"+leagueID+"",
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
+                        "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+                    }
+                    };
+                
+                     $.ajax(settings).done(function (response) {
+                    
+                    //standings from the chosen team are here
+                    console.log(response);
+                    console.log(response.api.standings[0].length);
+
+                    for (let i = 0; i < response.api.standings[0].length; i++) {
+                       if (response.api.standings[0][i].team_id==team) {
+                           var teamRank = response.api.standings[0][i].rank;
+                           var teamPoints = response.api.standings[0][i].points;
+                       }
+                       else {
+                           i++;
+                       }
+                        
+                    }
+
+                    console.log(teamRank);
+                    console.log(teamPoints);
+
+                    var first10name = [];
+                    var first10rank = [];
+                    var first10points = [];
+
+                    for (let i = 0; i < 10; i++) {
+                        first10name.push(response.api.standings[0][i].teamName);
+                        first10rank.push(response.api.standings[0][i].rank);
+                        first10points.push(response.api.standings[0][i].points);    
+                     }
+
+                     console.log(first10name);
+                     console.log(first10rank);
+                     console.log(first10points);
+                    //standings from the chosen team are here
+
+                        //TopScorers information
+
+                        const settings = {
+                         "async": true,
+                         "crossDomain": true,
+                         "url": "https://api-football-v1.p.rapidapi.com/v2/topscorers/"+leagueID+"",
+                         "method": "GET",
+                         "headers": {
+                                "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
+                                "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+                        }
+                        };
+                        
+                        $.ajax(settings).done(function (response) {
+                            console.log(response);
+                            var index = 0;
+                            while (response.api.topscorers[index].team_id!=team) {
+                                index++;
+                            }
+                            var teamTopScorer = response.api.topscorers[index].player_name;
+                            var teamTopScorerGoals = response.api.topscorers[index].goals.total;
+                            console.log(teamTopScorer);
+                            console.log(teamTopScorerGoals);
+                            
+                        });
+                     });
+                 });
             });
-          });
         });
-      });
-    });
-  }); //Ajax for team id
+       }
+
+    }); //Ajax for team id
+
+
 }
 function searchWeather(usersInput) {
   //let usersInput = "";
