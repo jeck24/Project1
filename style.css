@@ -1,28 +1,119 @@
 .jumbotron {
-    text-align: center;
-    border: solid black 10px;
-    padding: 5%;
-    background-image: url("https://www.thisisamericansoccer.com/wp-content/uploads/2020/07/Best-Soccer-Balls-1200x900.jpg");
-    color: black;
-  }
-  .middleSection{
-    margin-left: 7%;
-  }
-  .bottomSection{
-    display: flex;
-  }
-  .city{
-    margin-left: 5%;
-  }
+  margin-top: -2%;
+  text-align: center;
+  border: solid black 10px;
+  padding: 5.5%;
+  background-image: url("https://www.carolinaalehouse.com/wp-content/uploads/2017/06/Soccer-Title-desktop.jpg");
+  color: black;
+}
+.middleSection {
+  margin-left: 7%;
+}
+.bottomSection {
+  display: flex;
+}
+.city {
+  margin-left: 5%;
+}
 
-  table{
-    margin-top: 5%;
+aside{
+  margin-top: 4%;
+}
+
+table {
+  margin-top: 5%;
+}
+.vsTeamOne {
+  margin-left: 15%;
+}
+
+.vsTeamtwo {
+  margin-right: 135px;
+}
+
+.teamfixed {
+  text-align: center;
+}
+.vS {
+  margin-left: -800%;
+}
+
+footer p {
+  background-color: rgb(78, 76, 76);
+  padding: 2%;
+  margin-top: 5%;
+  margin-bottom: -5%;
+  border-top: solid teal 1rem;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.responsive-card-table {
+  border-collapse: collapse;
+}
+
+.responsive-card-table.unstriped tbody {
+  background-color: transparent;
+}
+
+.responsive-card-table th {
+  background-color: #e6e6e6;
+}
+
+.responsive-card-table tr,
+.responsive-card-table th,
+.responsive-card-table td {
+  border: 1px solid #0a0a0a;
+}
+
+@media screen and (max-width: 640px) {
+  .responsive-card-table {
   }
-  footer p {
-    background-color: rgb(78, 76, 76);
-    padding: 2%;
-    margin-top: 8%;
-    border-top: solid teal 1rem;
-    text-align: center;
-    color: whitesmoke;
+  .responsive-card-table thead tr {
+    position: absolute;
+    top: -9999em;
+    left: -9999em;
   }
+  .responsive-card-table tr {
+    border: 1px solid #0a0a0a;
+    display: block;
+  }
+  .responsive-card-table tr + tr {
+    margin-top: 1.5rem;
+  }
+  .responsive-card-table td {
+    border: none;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid #0a0a0a;
+    padding-left: 50%;
+    position: relative;
+  }
+  .responsive-card-table td:before {
+    content: attr(data-label);
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-left: -100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .responsive-card-table td:after {
+    content: "";
+    position: absolute;
+    background: #e6e6e6;
+    width: 45%;
+    height: 95%;
+    left: 1px;
+    top: 1px;
+    z-index: 0;
+  }
+}
