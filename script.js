@@ -111,6 +111,7 @@ function searchSoccerTeam(usersInput) {
         };
         
         $.ajax(settings).done(function (response) {
+        //Next fixture data is here
         console.log(response);
    
         var index = 0;
@@ -119,13 +120,33 @@ function searchSoccerTeam(usersInput) {
         }
         console.log(response.api.fixtures[index]);
 
+        var completeGameDate = response.api.fixtures[index].event_date
+        var gameDate = response.api.fixtures[index].event_date.substr(0,10);
 
+        if (response.api.fixtures[index].status === "Time to be defined") {
+            var gameTime = "To be defined"
+        }
+        else {
+            var gameTime =  completeGameDate.substr(completeGameDate.length - 14).substr(0,5);
+        
+        }
 
+        var awayTeam = response.api.fixtures[index].awayTeam.team_name;
+        var awayLogo = response.api.fixtures[index].awayTeam.logo;
+        var homeTeam = response.api.fixtures[index].homeTeam.team_name;
+        var homeLogo = response.api.fixtures[index].homeTeam.logo;
+        var gameDate = response.api.fixtures[index].event_date.substr(0,10);
 
-         // Fixture data will be manipulated here
+        console.log(gameDate);
+        console.log(gameTime);    
+        console.log(awayTeam);
+        console.log(awayLogo);
+        console.log(homeTeam);
+        console.log(homeLogo);
+        //Next fixture data is here
 
-         var leagueID = response.api.fixtures[0].league_id;
-         console.log(response.api.fixtures[0].league_id);
+         var leagueID = response.api.fixtures[0].league_id; //grabbing league ID from here as it comes from the fixture
+         console.log(response.api.fixtures[0].league_id); //grabbing league ID from here as it comes from the fixture
 
              // Coach for the Squad
 
@@ -141,12 +162,15 @@ function searchSoccerTeam(usersInput) {
             };
         
              $.ajax(settings).done(function (response) {
+            //Coach data is here
             console.log(response);
 
-            //Coach data will be manipulated here
+            var coachName = response.api.coachs[0].name;
+            console.log(coachName);
+            //Coach data is here
+
 
                  // Player from a Squad
-
                  const settings = {
                  "async": true,
                  "crossDomain": true,
@@ -158,11 +182,37 @@ function searchSoccerTeam(usersInput) {
                  }
                  };
                  $.ajax(settings).done(function (response) {
+
+                 // players arrays for each position are here   
                  console.log(response);
 
-                 // Squad data will be manipulated here
+                 var goalkeepers = [];
+                 var defenders = [];
+                 var midfielders = [];
+                 var attackers = [];
 
-                    //Standig for the ligue
+                 for (let i = 0; i < response.api.players.length; i++) {
+
+                    if (response.api.players[i].position === "Goalkeeper") {
+                        goalkeepers.push(response.api.players[i].player_name);
+                    }
+                    else if (response.api.players[i].position === "Attacker") {
+                        attackers.push(response.api.players[i].player_name);
+                    }
+                    else if (response.api.players[i].position === "Defender") {
+                        defenders.push(response.api.players[i].player_name);
+                    }
+                    else if (response.api.players[i].position === "Midfielder") {
+                        midfielders.push(response.api.players[i].player_name);
+                    }
+                 }
+                 console.log(goalkeepers);
+                 console.log(defenders);
+                 console.log(midfielders);
+                 console.log(attackers);
+                 // players arrays for each position are here
+
+                    //Standings for the ligue
 
                     const settings = {
                     "async": true,
@@ -176,25 +226,64 @@ function searchSoccerTeam(usersInput) {
                     };
                 
                      $.ajax(settings).done(function (response) {
+                    
+                    //standings from the chosen team are here
                     console.log(response);
+                    console.log(response.api.standings[0].length);
 
-                    // Standing data will be manipulated here
+                    for (let i = 0; i < response.api.standings[0].length; i++) {
+                       if (response.api.standings[0][i].team_id==team) {
+                           var teamRank = response.api.standings[0][i].rank;
+                           var teamPoints = response.api.standings[0][i].points;
+                       }
+                       else {
+                           i++;
+                       }
+                        
+                    }
+
+                    console.log(teamRank);
+                    console.log(teamPoints);
+
+                    var first10name = [];
+                    var first10rank = [];
+                    var first10points = [];
+
+                    for (let i = 0; i < 10; i++) {
+                        first10name.push(response.api.standings[0][i].teamName);
+                        first10rank.push(response.api.standings[0][i].rank);
+                        first10points.push(response.api.standings[0][i].points);    
+                     }
+
+                     console.log(first10name);
+                     console.log(first10rank);
+                     console.log(first10points);
+                    //standings from the chosen team are here
 
                         //TopScorers information
 
                         const settings = {
-                            "async": true,
-                            "crossDomain": true,
-                            "url": "https://api-football-v1.p.rapidapi.com/v2/topscorers/"+leagueID+"",
-                            "method": "GET",
-                            "headers": {
+                         "async": true,
+                         "crossDomain": true,
+                         "url": "https://api-football-v1.p.rapidapi.com/v2/topscorers/"+leagueID+"",
+                         "method": "GET",
+                         "headers": {
                                 "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
                                 "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
-                            }
+                        }
                         };
                         
                         $.ajax(settings).done(function (response) {
                             console.log(response);
+                            var index = 0;
+                            while (response.api.topscorers[index].team_id!=team) {
+                                index++;
+                            }
+                            var teamTopScorer = response.api.topscorers[index].player_name;
+                            var teamTopScorerGoals = response.api.topscorers[index].goals.total;
+                            console.log(teamTopScorer);
+                            console.log(teamTopScorerGoals);
+                            
                         });
                      });
                  });
