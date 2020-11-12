@@ -17,17 +17,7 @@ $("button").on("click", (event) => {
       hideImg()
 });
 
-$(".iconOne").on("click", function(){
-    console.log("click");
-});
 
-$(".iconTwo").on("click", function(){
-    console.log("click");
-});
-
-$(".iconThree").on("click", function(){
-    console.log("click");
-});
 
 function renderLastBrowsed() {
     var city = localStorage.getItem("city");
@@ -87,30 +77,33 @@ function searchSoccerTeam(usersInput) {
        $(".foundedTeamTwo").text(response.api.teams[1].founded);
        $(".foundedTeamThree").text(response.api.teams[2].founded);
 
-       var teamID1 = response.api.teams[1].team_id;
-       const settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/"+teamID1+"/last/10?timezone=Europe%2FLondon",
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
-            "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
-        }
-        };
+
+    $(".iconOne").on("click", function(){
+        console.log("click");
+        var teamID = response.api.teams[0].team_id;
+        getTeamData(teamID);
+    });
     
-         $.ajax(settings).done(function (response) {
-        console.log(response);
-        });
+    $(".iconTwo").on("click", function(){
+        console.log("click");
+        var teamID = response.api.teams[1].team_id;
+        getTeamData(teamID);
+    });
+    
+    $(".iconThree").on("click", function(){
+        console.log("click");
+        var teamID = response.api.teams[2].team_id;
+        getTeamData(teamID);
+    });
 
-        var teamID1 = response.api.teams[1].team_id;
+       function getTeamData(team) {
       
-        // Next 10 fixtures
+        // Next fixture
 
-        const settings2 = {
+        const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/"+teamID1+"/next/1?timezone=Europe%2FLondon",
+            "url": "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/"+team+"/next/10?timezone=Europe%2FLondon",
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
@@ -118,20 +111,29 @@ function searchSoccerTeam(usersInput) {
             }
         };
         
-        $.ajax(settings2).done(function (response) {
+        $.ajax(settings).done(function (response) {
         console.log(response);
+   
+        var index = 0;
+        while (response.api.fixtures[index].homeTeam.team_id!=team) {
+            index++;
+        }
+        console.log(response.api.fixtures[index]);
+
+
+
 
          // Fixture data will be manipulated here
 
-         var leagueID1 = response.api.fixtures[0].league_id;
+         var leagueID = response.api.fixtures[0].league_id;
          console.log(response.api.fixtures[0].league_id);
 
              // Coach for the Squad
 
-            const settings4 = {
+            const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://api-football-v1.p.rapidapi.com/v2/coachs/team/"+teamID1+"",
+            "url": "https://api-football-v1.p.rapidapi.com/v2/coachs/team/"+team+"",
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
@@ -139,24 +141,24 @@ function searchSoccerTeam(usersInput) {
             }
             };
         
-             $.ajax(settings4).done(function (response) {
+             $.ajax(settings).done(function (response) {
             console.log(response);
 
             //Coach data will be manipulated here
 
                  // Player from a Squad
 
-                 const settings3 = {
+                 const settings = {
                  "async": true,
                  "crossDomain": true,
-                 "url": "https://api-football-v1.p.rapidapi.com/v2/players/squad/"+teamID1+"/2020-2021",
+                 "url": "https://api-football-v1.p.rapidapi.com/v2/players/squad/"+team+"/2020-2021",
                  "method": "GET",
                  "headers": {
                  "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
                  "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
                  }
                  };
-                 $.ajax(settings3).done(function (response) {
+                 $.ajax(settings).done(function (response) {
                  console.log(response);
 
                  // Squad data will be manipulated here
@@ -166,7 +168,7 @@ function searchSoccerTeam(usersInput) {
                     const settings = {
                     "async": true,
                     "crossDomain": true,
-                    "url": "https://api-football-v1.p.rapidapi.com/v2/leagueTable/"+leagueID1+"",
+                    "url": "https://api-football-v1.p.rapidapi.com/v2/leagueTable/"+leagueID+"",
                     "method": "GET",
                     "headers": {
                         "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
@@ -184,7 +186,7 @@ function searchSoccerTeam(usersInput) {
                         const settings = {
                             "async": true,
                             "crossDomain": true,
-                            "url": "https://api-football-v1.p.rapidapi.com/v2/topscorers/"+leagueID1+"",
+                            "url": "https://api-football-v1.p.rapidapi.com/v2/topscorers/"+leagueID+"",
                             "method": "GET",
                             "headers": {
                                 "x-rapidapi-key": "20e63e8764msh6e7705d43688309p1632f8jsnc72c7e215d66",
@@ -199,6 +201,8 @@ function searchSoccerTeam(usersInput) {
                  });
             });
         });
+       }
+
     }); //Ajax for team id
 
 }
