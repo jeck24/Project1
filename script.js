@@ -79,19 +79,25 @@ function searchSoccerTeam(usersInput) {
 
     $(".iconOne").on("click", function(){
         console.log("click");
-        var teamID = response.api.teams[0].team_id;
+        var teamID ="";
+        teamID = response.api.teams[0].team_id;
+        console.log(teamID);
         getTeamData(teamID);
     });
     
     $(".iconTwo").on("click", function(){
         console.log("click");
-        var teamID = response.api.teams[1].team_id;
+        var teamID ="";
+        teamID = response.api.teams[1].team_id;
+        console.log(teamID);
         getTeamData(teamID);
     });
     
     $(".iconThree").on("click", function(){
         console.log("click");
-        var teamID = response.api.teams[2].team_id;
+        var teamID ="";
+        teamID = response.api.teams[2].team_id;
+        console.log(teamID);
         getTeamData(teamID);
     });
 
@@ -231,16 +237,25 @@ function searchSoccerTeam(usersInput) {
                     console.log(response);
                     console.log(response.api.standings[0].length);
 
+                    var teamIndex ="";
+
+                    var teamRank = "";
+                    var teamPoints = "";
+
                     for (let i = 0; i < response.api.standings[0].length; i++) {
-                       if (response.api.standings[0][i].team_id==team) {
-                           var teamRank = response.api.standings[0][i].rank;
-                           var teamPoints = response.api.standings[0][i].points;
+                       if (response.api.standings[0][i].team_id===team) {
+                         teamIndex=i;
+                          //  i++;
                        }
-                       else {
-                           i++;
-                       }
+                      //  else {
+                      //   teamRank = response.api.standings[0][i].rank;
+                      //   teamPoints = response.api.standings[0][i].points;
+                      //  }
                         
                     }
+
+                    teamRank = response.api.standings[0][teamIndex].rank;
+                    teamPoints = response.api.standings[0][teamIndex].points;
 
                     console.log(teamRank);
                     console.log(teamPoints);
@@ -283,7 +298,21 @@ function searchSoccerTeam(usersInput) {
                             var teamTopScorerGoals = response.api.topscorers[index].goals.total;
                             console.log(teamTopScorer);
                             console.log(teamTopScorerGoals);
-                            
+
+                            var first10topScorers = [];
+                            var first10topScorersRank = [];
+                            var first10topScorerGoals = [];
+
+                            for (let i = 0; i < 10; i++) {
+                              first10topScorers.push(response.api.topscorers[i].player_name);
+                              first10topScorersRank.push(i+1);
+                              first10topScorerGoals.push(response.api.topscorers[i].goals.total);    
+                           }
+
+                            console.log(first10topScorers);
+                            console.log(first10topScorersRank);
+                            console.log(first10topScorerGoals);
+
                         });
                      });
                  });
