@@ -80,10 +80,6 @@ function searchSoccerTeam(usersInput) {
         teamID = response.api.teams[0].team_id;
         console.log(teamID);
         getTeamData(teamID);
-
-        var coachName = response.api.coachs[0].name;
-        console.log(coachName);
-
     });
     
     $(".iconTwo").on("click", function(){
@@ -203,57 +199,103 @@ function searchSoccerTeam(usersInput) {
                  var defenders = [];
                  var midfielders = [];
                  var attackers = [];
+                 
+                 var goalkeepersNat = [];
+                 var defendersNat = [];
+                 var midfieldersNat = [];
+                 var attackersNat = [];
 
                  for (let i = 0; i < response.api.players.length; i++) {
 
                     if (response.api.players[i].position === "Goalkeeper") {
                         goalkeepers.push(response.api.players[i].player_name);
+                        goalkeepersNat.push(response.api.players[i].nationality);
                     }
                     else if (response.api.players[i].position === "Attacker") {
                         attackers.push(response.api.players[i].player_name);
+                        attackersNat.push(response.api.players[i].nationality);
                     }
                     else if (response.api.players[i].position === "Defender") {
                         defenders.push(response.api.players[i].player_name);
+                        defendersNat.push(response.api.players[i].nationality);
                     }
                     else if (response.api.players[i].position === "Midfielder") {
                         midfielders.push(response.api.players[i].player_name);
+                        midfieldersNat.push(response.api.players[i].nationality);
                     }
                  }
                  console.log(goalkeepers);
                  console.log(defenders);
                  console.log(midfielders);
                  console.log(attackers);
+
+                 console.log(goalkeepersNat);
+                 console.log(defendersNat);
+                 console.log(midfieldersNat);
+                 console.log(attackersNat);
+
                  // players arrays for each position are here
 
-                 var playerOne = goalkeepers[Math.floor(Math.random()*goalkeepers.length)];
+
+                 var random1 = Math.floor(Math.random()*goalkeepers.length);
+                 var playerOne = goalkeepers[random1];
+                 var NatOne = goalkeepersNat[random1]
                  $(".playerOne").text(playerOne);
+                 $(".nationalityOne").text(NatOne);
 
-                 var playerTwo = defenders[Math.floor(Math.random()*defenders.length)];
+                 var random2 = Math.floor(Math.random()*defenders.length);
+                 var playerTwo = defenders[random2];
+                 var NatTwo = defendersNat[random2]
                  $(".playerTwo").text(playerTwo);
+                 $(".nationalityTwo").text(NatTwo);
 
-                 var playerThree = defenders[Math.floor(Math.random()*defenders.length)];
+                 var random3 = Math.floor(Math.random()*defenders.length);
+                 var playerThree = defenders[random3];
+                 var NatThree = defendersNat[random3]
                  $(".playerThree").text(playerThree);
+                 $(".nationalityThree").text(NatThree);
 
-                 var playerFour = defenders[Math.floor(Math.random()*defenders.length)];
+                 var random4 = Math.floor(Math.random()*defenders.length);
+                 var playerFour = defenders[random4];
+                 var NatFour = defendersNat[random4]
                  $(".playerFour").text(playerFour);
+                 $(".nationalityFour").text(NatFour);
 
-                 var playerFive = midfielders[Math.floor(Math.random()*midfielders.length)];
+                 var random5 = Math.floor(Math.random()*midfielders.length);
+                 var playerFive = midfielders[random5];
+                 var NatFive = midfieldersNat[random5]
                  $(".playerFive").text(playerFive);
-
-                 var playerSix = midfielders[Math.floor(Math.random()*midfielders.length)];
+                 $(".nationalityFive").text(NatFive);
+                 
+                 var random6 = Math.floor(Math.random()*midfielders.length);
+                 var playerSix = midfielders[random6];
+                 var NatSix = midfieldersNat[random6]
                  $(".playerSix").text(playerSix);
-
-                 var playerSeven = midfielders[Math.floor(Math.random()*midfielders.length)];
+                 $(".nationalitySix").text(NatSix);
+                 
+                 var random7 = Math.floor(Math.random()*midfielders.length);
+                 var playerSeven = midfielders[random7];
+                 var NatSeven = midfieldersNat[random7]
                  $(".playerSeven").text(playerSeven);
+                 $(".nationalitySeven").text(NatSeven);
 
-                 var playerEight = attackers[Math.floor(Math.random()*attackers.length)];
+                 var random8 = Math.floor(Math.random()*attackers.length);
+                 var playerEight = attackers[random8];
+                 var NatEight = attackersNat[random8]
                  $(".playerEight").text(playerEight);
+                 $(".nationalityEight").text(NatEight);
 
-                 var playerNine = attackers[Math.floor(Math.random()*attackers.length)];
+                 var random9 = Math.floor(Math.random()*attackers.length);
+                 var playerNine = attackers[random9];
+                 var NatNine = attackersNat[random9]
                  $(".playerNine").text(playerNine);
+                 $(".nationalityNine").text(NatNine);
 
-                 var playerTen = attackers[Math.floor(Math.random()*attackers.length)];
+                 var random10 = Math.floor(Math.random()*attackers.length);
+                 var playerTen = attackers[random10];
+                 var NatTen = attackersNat[random10]
                  $(".playerTen").text(playerTen);
+                 $(".nationalityTen").text(NatTen);
 
                     //Standings for the ligue
 
