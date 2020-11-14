@@ -245,12 +245,7 @@ function searchSoccerTeam(usersInput) {
                     for (let i = 0; i < response.api.standings[0].length; i++) {
                        if (response.api.standings[0][i].team_id===team) {
                          teamIndex=i;
-                          //  i++;
                        }
-                      //  else {
-                      //   teamRank = response.api.standings[0][i].rank;
-                      //   teamPoints = response.api.standings[0][i].points;
-                      //  }
                         
                     }
 
