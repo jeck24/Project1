@@ -83,6 +83,7 @@ function searchSoccerTeam(usersInput) {
         teamID = response.api.teams[0].team_id;
         console.log(teamID);
         getTeamData(teamID);
+
     });
     
     $(".iconTwo").on("click", function(){
