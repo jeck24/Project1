@@ -178,7 +178,7 @@ function searchSoccerTeam(usersInput) {
             console.log(response);
 
             var coachName = response.api.coachs[0].name;
-            $(".teamCoachCurrent").text(coachName);
+            $(".managerOne").text(coachName);
             console.log(coachName);
             //Coach data is here
 
@@ -300,62 +300,90 @@ function searchSoccerTeam(usersInput) {
                     var first10name = [];
                     var first10rank = [];
                     var first10points = [];
+                    var first10goals = [];
 
                     for (let i = 0; i < 10; i++) {
                         first10name.push(response.api.standings[0][i].teamName);
                         first10rank.push(response.api.standings[0][i].rank);
-                        first10points.push(response.api.standings[0][i].points);    
+                        first10points.push(response.api.standings[0][i].points);
+                        first10goals.push(response.api.standings[0][i].all.goalsFor);
                      }
 
                      console.log(first10name);
                      console.log(first10rank);
                      console.log(first10points);
+                     console.log(first10goals);
                     //standings from the chosen team are here
 
                     var teamOne = first10name[0];
                     var teamOnePoints = first10points[0];
+                    var goalsForOne = first10goals[0];
                     $(".teamOne").text(teamOne);
                     $(".teamPointsOne").text(teamOnePoints);
+                    $(".goalsForOne").text(goalsForOne);
 
                     var teamTwo = first10name[1];
                     var teamTwoPoints = first10points[1];
+                    var goalsForTwo = first10goals[1];
                     $(".teamTwo").text(teamTwo);
                     $(".teamPointsTwo").text(teamTwoPoints);
+                    $(".goalsForTwo").text(goalsForTwo);
 
                     var teamThree = first10name[2];
                     var teamThreePoints = first10points[2];
+                    var goalsForThree = first10goals[2];
                     $(".teamThree").text(teamThree);
                     $(".teamPointsThree").text(teamThreePoints);
+                    $(".goalsForThree").text(goalsForThree);
 
                     var teamFour = first10name[3];
                     var teamFourPoints = first10points[3];
+                    var goalsForFour = first10goals[3];
                     $(".teamFour").text(teamFour);
                     $(".teamPointsFour").text(teamFourPoints);
+                    $(".goalsForFour").text(goalsForFour);
 
                     var teamFive = first10name[4];
                     var teamFivePoints = first10points[4];
+                    var goalsForFive = first10goals[4];
                     $(".teamFive").text(teamFive);
                     $(".teamPointsFive").text(teamFivePoints);
+                    $(".goalsForFive").text(goalsForFive);
 
                     var teamSix = first10name[5];
                     var teamSixPoints = first10points[5];
+                    var goalsForSix = first10goals[5];
                     $(".teamSix").text(teamSix);
                     $(".teamPointsSix").text(teamSixPoints);
+                    $(".goalsForSix").text(goalsForSix);
 
                     var teamSeven = first10name[6];
                     var teamSevenPoints = first10points[6];
+                    var goalsForSeven = first10goals[6];
                     $(".teamSeven").text(teamSeven);
                     $(".teamPointsSeven").text(teamSevenPoints);
+                    $(".goalsForSeven").text(goalsForSeven);
 
                     var teamEight = first10name[7];
                     var teamEightPoints = first10points[7];
+                    var goalsForEight = first10goals[7];
                     $(".teamEight").text(teamEight);
                     $(".teamPointsEight").text(teamEightPoints);
+                    $(".goalsForEight").text(goalsForEight);
 
                     var teamNine = first10name[8];
                     var teamNinePoints = first10points[8];
+                    var goalsForNine = first10goals[8];
                     $(".teamNine").text(teamNine);
                     $(".teamPointsNine").text(teamNinePoints);
+                    $(".goalsForNine").text(goalsForNine);
+
+                    var teamTen = first10name[9];
+                    var teamTenPoints = first10points[9];
+                    var goalsForTen = first10goals[9];
+                    $(".teamTen").text(teamTen);
+                    $(".teamPointsTen").text(teamTenPoints);
+                    $(".goalsForTen").text(goalsForTen);
 
                         //TopScorers information
 
@@ -439,6 +467,11 @@ function searchSoccerTeam(usersInput) {
                             var goalscorerGoalsNine = first10topScorerGoals[8];
                             $(".goalscorerNine").text(goalscorerNine);
                             $(".goalsNine").text(goalscorerGoalsNine);
+
+                            var goalscorerTen = first10topScorers[9];
+                            var goalscorerGoalsTen = first10topScorerGoals[9];
+                            $(".goalscorerTen").text(goalscorerTen);
+                            $(".goalsTen").text(goalscorerGoalsTen);
 
                         });
                      });
