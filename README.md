@@ -2,15 +2,46 @@
 
 https://jeck24.github.io/Project1/
 
+https://github.com/jeck24/Project1/tree/main
+
 https://github.com/jeck24/Project1/tree/JC
+
+
+Api Used:
+Weather API   https://www.api-football.com/
+API-FOOTBALL Overview     https://openweathermap.org/api
 
 ![4mnspj](https://user-images.githubusercontent.com/67298961/99329582-27781380-2844-11eb-8ead-2a6f9f316dd5.gif)
 
+I started bt tgoung to Foundation and looking what templete would be good to use. Once i Figured out what i needed.I started to build 
+the layout. I was able to come up a layout that my taem was able to use for the project.
+I added My Top Jumbotn and set that with a background image so it would nice. I then added a input for the search to be done 
+
+![image](https://user-images.githubusercontent.com/67298961/99332077-b9345080-2845-11eb-9126-a0347db8c3d3.png)
+
+After this a looked for a table to use for the results given by the search. I was able to Divid teh table by using display: flex;
+NOw that all the layout was set. the API that we were going ti use did not have acceee to the sheilds for each team. I took it Upon myself to find away.
+I was able to get access to the API needed. With that I was able to make the team call to the each City or county the taem is located as well as the Icon
+To see hoe the weather is like during that time.
+
+![image](https://user-images.githubusercontent.com/67298961/99335578-b7b75800-2846-11eb-88bf-7323b794d3e9.png)
+
 ![image](https://user-images.githubusercontent.com/67298961/99329962-fba95d80-2844-11eb-8cc2-9d6b3ed960b8.png)
+
+I was able to use this to my advantage. With the input the is given I used that to be able to also call the Current Wearther of teh City or counrty 
 
 ![image](https://user-images.githubusercontent.com/67298961/99330105-24c9ee00-2845-11eb-886d-aff3aea22d72.png)
 
+My Team mates were able to do the same with the teh Top Score, Top Goals. Team Players.
+
 ![image](https://user-images.githubusercontent.com/67298961/99330941-62c71200-2845-11eb-889c-c8794b3d73e8.png)
+
+![image](https://user-images.githubusercontent.com/67298961/99331427-8722ee80-2845-11eb-9e78-20e4f11a66bf.png)
+
+Over all This was a great project as we were abel to bring this app to live. 
+This was one of the best assignmet yet. 
+
+
 
 ## Application Requirements
 Your project should fulfill the following requirements:
