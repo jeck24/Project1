@@ -13,7 +13,7 @@ API-FOOTBALL Overview     https://openweathermap.org/api
 
 ![4mnspj](https://user-images.githubusercontent.com/67298961/99329582-27781380-2844-11eb-8ead-2a6f9f316dd5.gif)
 
-I started bt tgoung to Foundation and looking what templete would be good to use. Once i Figured out what i needed.I started to build 
+I started by going to Foundation and looking what templete would be good to use. Once i Figured out what i needed.I started to build 
 the layout. I was able to come up a layout that my taem was able to use for the project.
 I added My Top Jumbotn and set that with a background image so it would nice. I then added a input for the search to be done 
 
