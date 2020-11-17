@@ -6,6 +6,12 @@ https://github.com/jeck24/Project1/tree/JC
 
 ![4mnspj](https://user-images.githubusercontent.com/67298961/99329582-27781380-2844-11eb-8ead-2a6f9f316dd5.gif)
 
+![image](https://user-images.githubusercontent.com/67298961/99329962-fba95d80-2844-11eb-8cc2-9d6b3ed960b8.png)
+
+![image](https://user-images.githubusercontent.com/67298961/99330105-24c9ee00-2845-11eb-886d-aff3aea22d72.png)
+
+![image](https://user-images.githubusercontent.com/67298961/99330941-62c71200-2845-11eb-889c-c8794b3d73e8.png)
+
 ## Application Requirements
 Your project should fulfill the following requirements:
 * Use a CSS framework other than Bootstrap.
