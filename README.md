@@ -5,7 +5,7 @@ https://jeck24.github.io/Project1/
 https://github.com/jeck24/Project1/tree/JC
 
 
-<img src="./gif/soccerapp.gif">
+![4mnspj](https://user-images.githubusercontent.com/67298961/99329582-27781380-2844-11eb-8ead-2a6f9f316dd5.gif)
 
 
 ![image](https://user-images.githubusercontent.com/67298961/98879793-f36baf80-244b-11eb-989a-4cf21ea990ae.png)
