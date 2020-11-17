@@ -7,6 +7,14 @@
   color: black;
 }
 
+#responsive-menu{
+  background-image: url("http://www.jrkseed.com/images/Home_Lawn_Front.png");
+}
+
+.menu{
+  background-image: url("http://www.jrkseed.com/images/Home_Lawn_Front.png");
+}
+
 .mTittle{
   float: right;
 }
@@ -39,7 +47,7 @@ table {
   text-align: center;
 }
 .vS {
-  margin-left: -800%;
+  margin-left: -1600%;
 }
 .row{
   display: flex;
@@ -53,14 +61,13 @@ table {
   width: 45%;
 }
 
-footer p {
-  background-color: rgb(78, 76, 76);
+footer h4 {
+  background-image: url("https://www.thisisamericansoccer.com/wp-content/uploads/2020/07/Best-Soccer-Balls.jpg");
   padding: 2%;
   margin-top: 5%;
   margin-bottom: -5%;
-  border-top: solid teal 1rem;
   text-align: center;
-  color: whitesmoke;
+  color: black;
 }
 
 .responsive-card-table {
